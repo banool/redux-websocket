@@ -14,6 +14,7 @@ const defaultOptions = {
   reconnectOnClose: false,
   prefix: actionTypes.DEFAULT_PREFIX,
   serializer: JSON.stringify,
+  stringTimestamp: false,
 };
 
 /**
@@ -25,7 +26,7 @@ const defaultOptions = {
  */
 export default (rawOptions?: Options): Middleware => {
   const options = { ...defaultOptions, ...rawOptions };
-  const { prefix } = options;
+  const { stringTimestamp, prefix } = options;
   const actionPrefixExp = RegExp(`^${prefix}::`);
 
   // Create a new redux websocket instance.
@@ -52,7 +53,7 @@ export default (rawOptions?: Options): Middleware => {
         try {
           handler(store, action);
         } catch (err) {
-          dispatch(error(action, err, prefix));
+          dispatch(error(action, err, stringTimestamp, prefix));
         }
       }
     }

@@ -28,6 +28,7 @@ type Action =
   | { type: typeof WEBSOCKET_SEND; payload: any };
 
 type Options = {
+  stringTimestamp: boolean;
   prefix?: string;
   reconnectInterval?: number;
   reconnectOnClose?: boolean;
