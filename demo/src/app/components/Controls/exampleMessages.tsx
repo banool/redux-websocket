@@ -35,7 +35,7 @@ export default [
         ins: 'AAPL',
         amt: 550,
         side: 'buy',
-        date: new Date().toJSON(),
+        date: new Date(),
       },
       null,
       2

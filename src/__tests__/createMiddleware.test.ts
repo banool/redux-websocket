@@ -102,7 +102,7 @@ describe('middleware', () => {
     const { store, dispatch } = mockStore();
     const dispatchedAction = {
       type: 'REDUX_WEBSOCKET::CONNECT',
-      meta: { timestamp: expect.any(String) },
+      meta: { timestamp: expect.any(Date) },
       payload: {
         url: 'ws://example.com',
       },
@@ -119,7 +119,7 @@ describe('middleware', () => {
     const { store, dispatch } = mockStore();
     const dispatchedAction = {
       type: 'REDUX_WEBSOCKET::DISCONNECT',
-      meta: { timestamp: expect.any(String) },
+      meta: { timestamp: expect.any(Date) },
     };
 
     const val = dispatch(actions.disconnect());
@@ -133,7 +133,7 @@ describe('middleware', () => {
     const { store, dispatch } = mockStore();
     const dispatchedAction = {
       type: 'REDUX_WEBSOCKET::SEND',
-      meta: { timestamp: expect.any(String) },
+      meta: { timestamp: expect.any(Date) },
       payload: {
         test: 'message',
       },
@@ -171,7 +171,7 @@ describe('middleware', () => {
     const expectedResult = {
       type: 'REDUX_WEBSOCKET::SEND',
       meta: {
-        timestamp: expect.any(String),
+        timestamp: expect.any(Date),
       },
       payload: {
         test: 'message',
@@ -184,7 +184,7 @@ describe('middleware', () => {
       error: true,
       type: 'REDUX_WEBSOCKET::ERROR',
       meta: {
-        timestamp: expect.any(String),
+        timestamp: expect.any(Date),
         originalAction: expectedResult,
         name: 'Error',
         message: 'whoops',

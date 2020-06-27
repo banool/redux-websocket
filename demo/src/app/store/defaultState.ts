@@ -1,7 +1,7 @@
 export interface MessageState {
   data: string | object;
   origin: string;
-  timestamp: string;  // Serialized Date
+  timestamp: Date;
   type: 'OUTGOING' | 'INCOMING';
 }
 
