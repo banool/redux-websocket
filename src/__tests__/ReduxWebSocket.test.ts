@@ -95,7 +95,7 @@ describe('ReduxWebSocket', () => {
       expect(store.dispatch).toHaveBeenCalledWith({
         type: 'REDUX_WEBSOCKET::CLOSED',
         meta: {
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
         payload: 'test event',
       });
@@ -133,7 +133,7 @@ describe('ReduxWebSocket', () => {
       expect(store.dispatch).toHaveBeenCalledWith({
         type: 'REDUX_WEBSOCKET::MESSAGE',
         meta: {
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
         payload: {
           event: testEvent,
@@ -156,7 +156,7 @@ describe('ReduxWebSocket', () => {
         expect(store.dispatch).toHaveBeenCalledWith({
           type: 'REDUX_WEBSOCKET::ERROR',
           meta: {
-            timestamp: expect.any(Date),
+            timestamp: expect.any(String),
             message: '`redux-websocket` error',
             name: 'Error',
             originalAction: null,
@@ -199,7 +199,7 @@ describe('ReduxWebSocket', () => {
         expect(store.dispatch).toHaveBeenCalledWith({
           type: 'REDUX_WEBSOCKET::OPEN',
           meta: {
-            timestamp: expect.any(Date),
+            timestamp: expect.any(String),
           },
         });
         expect(reduxWebSocket['hasOpened']).toEqual(true);
@@ -245,13 +245,13 @@ describe('ReduxWebSocket', () => {
         expect(store.dispatch).toHaveBeenCalledWith({
           type: 'REDUX_WEBSOCKET::RECONNECTED',
           meta: {
-            timestamp: expect.any(Date),
+            timestamp: expect.any(String),
           },
         });
         expect(store.dispatch).toHaveBeenCalledWith({
           type: 'REDUX_WEBSOCKET::OPEN',
           meta: {
-            timestamp: expect.any(Date),
+            timestamp: expect.any(String),
           },
           payload: 'test event',
         });
@@ -360,19 +360,19 @@ describe('ReduxWebSocket', () => {
       expect(dispatch).toHaveBeenNthCalledWith(1, {
         type: 'REDUX_WEBSOCKET::BROKEN',
         meta: {
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       });
       expect(dispatch).toHaveBeenNthCalledWith(2, {
         type: 'REDUX_WEBSOCKET::BEGIN_RECONNECT',
         meta: {
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       });
       expect(dispatch).toHaveBeenNthCalledWith(3, {
         type: 'REDUX_WEBSOCKET::RECONNECT_ATTEMPT',
         meta: {
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
         payload: {
           count: 1,
@@ -381,7 +381,7 @@ describe('ReduxWebSocket', () => {
       expect(dispatch).toHaveBeenNthCalledWith(4, {
         type: 'REDUX_WEBSOCKET::RECONNECT_ATTEMPT',
         meta: {
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
         payload: {
           count: 2,
@@ -390,7 +390,7 @@ describe('ReduxWebSocket', () => {
       expect(dispatch).toHaveBeenNthCalledWith(5, {
         type: 'REDUX_WEBSOCKET::RECONNECT_ATTEMPT',
         meta: {
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
         payload: {
           count: 3,

@@ -14,7 +14,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${actionTypes.DEFAULT_PREFIX}::${actionTypes.WEBSOCKET_CONNECT}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
           payload: {
             url: 'fake url',
           },
@@ -27,7 +27,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${PREFIX}::${actionTypes.WEBSOCKET_CONNECT}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
           payload: {
             url: 'fake url',
           },
@@ -40,7 +40,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${actionTypes.DEFAULT_PREFIX}::${actionTypes.WEBSOCKET_CONNECT}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
           payload: {
             url: 'fake url',
             protocols: ['protocol'],
@@ -54,7 +54,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${PREFIX}::${actionTypes.WEBSOCKET_CONNECT}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
           payload: {
             url: 'fake url',
             protocols: ['protocol'],
@@ -70,7 +70,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${actionTypes.DEFAULT_PREFIX}::${actionTypes.WEBSOCKET_DISCONNECT}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
         });
       });
 
@@ -80,7 +80,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${PREFIX}::${actionTypes.WEBSOCKET_DISCONNECT}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
         });
       });
     });
@@ -92,7 +92,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${actionTypes.DEFAULT_PREFIX}::${actionTypes.WEBSOCKET_SEND}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
           payload: {
             test: 'value',
           },
@@ -105,7 +105,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${PREFIX}::${actionTypes.WEBSOCKET_SEND}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
           payload: {
             test: 'value',
           },
@@ -122,7 +122,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${PREFIX}::${actionTypes.WEBSOCKET_BEGIN_RECONNECT}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
         });
       });
     });
@@ -134,7 +134,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${PREFIX}::${actionTypes.WEBSOCKET_RECONNECT_ATTEMPT}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
           payload: {
             count: 1,
           },
@@ -149,7 +149,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${PREFIX}::${actionTypes.WEBSOCKET_RECONNECTED}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
         });
       });
     });
@@ -162,7 +162,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${PREFIX}::${actionTypes.WEBSOCKET_CLOSED}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
           payload: event,
         });
       });
@@ -176,7 +176,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${PREFIX}::${actionTypes.WEBSOCKET_MESSAGE}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
           payload: {
             event,
             message: null,
@@ -194,7 +194,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${PREFIX}::${actionTypes.WEBSOCKET_OPEN}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
           payload: event,
         });
       });
@@ -207,7 +207,7 @@ describe('actions', () => {
         expect(isFSA(act)).toBe(true);
         expect(act).toEqual({
           type: `${PREFIX}::${actionTypes.WEBSOCKET_BROKEN}`,
-          meta: { timestamp: expect.any(Date) },
+          meta: { timestamp: expect.any(String) },
         });
       });
     });
@@ -224,7 +224,7 @@ describe('actions', () => {
           type: `${PREFIX}::${actionTypes.WEBSOCKET_ERROR}`,
           error: true,
           meta: {
-            timestamp: expect.any(Date),
+            timestamp: expect.any(String),
             message: 'test',
             name: 'Error',
             originalAction,
@@ -243,7 +243,7 @@ describe('actions', () => {
           type: `${PREFIX}::${actionTypes.WEBSOCKET_ERROR}`,
           error: true,
           meta: {
-            timestamp: expect.any(Date),
+            timestamp: expect.any(String),
             message: 'test',
             name: 'Error',
             originalAction: null,

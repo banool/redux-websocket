@@ -141,6 +141,8 @@ store.dispatch(send({ my: 'message' }));
 
 These actions are dispatched automatically by the middlware.
 
+In all cases, `timestamp` comes from `new Date().toJSON()`.
+
 ##### ⬅️ `REDUX_WEBSOCKET::OPEN`
 
 Dispatched when the WebSocket connection successfully opens, including after automatic reconnect.
@@ -151,7 +153,7 @@ Dispatched when the WebSocket connection successfully opens, including after aut
 {
     type: 'REDUX_WEBSOCKET::OPEN',
     meta: {
-        timestamp: Date,
+        timestamp: string,
     },
 }
 ```
@@ -168,7 +170,7 @@ Dispatched when the WebSocket connection successfully closes, both when you ask 
 {
     type: 'REDUX_WEBSOCKET::CLOSED',
     meta: {
-        timestamp: Date,
+        timestamp: string,
     },
 }
 ```
@@ -185,7 +187,7 @@ Dispatched when the WebSocket connection receives a message. The payload include
 {
     type: 'REDUX_WEBSOCKET::MESSAGE',
     meta: {
-        timestamp: Date,
+        timestamp: string,
     },
     payload: {
         message: string,
@@ -206,7 +208,7 @@ Dispatched when the WebSocket connection is dropped. This action will always be 
 {
     type: 'REDUX_WEBSOCKET::BROKEN',
     meta: {
-        timestamp: Date,
+        timestamp: string,
     },
 }
 ```
@@ -223,7 +225,7 @@ Dispatched when the middleware is starting the reconnection process.
 {
     type: 'REDUX_WEBSOCKET::BEGIN_RECONNECT',
     meta: {
-        timestamp: Date,
+        timestamp: string,
     },
 }
 ```
@@ -240,7 +242,7 @@ Dispatched every time the middleware attempts a reconnection. Includes a `count`
 {
     type: 'REDUX_WEBSOCKET::RECONNECT_ATTEMPT',
     meta: {
-        timestamp: Date,
+        timestamp: string,
     },
     payload: {
         count: number,
@@ -260,7 +262,7 @@ Dispatched when the middleware reconnects. This action is dispached right before
 {
     type: 'REDUX_WEBSOCKET::RECONNECTED',
     meta: {
-        timestamp: Date,
+        timestamp: string,
     },
 }
 ```
@@ -278,7 +280,7 @@ General purpose error action.
     type: 'REDUX_WEBSOCKET::ERROR',
     error: true,
     meta: {
-        timestamp: Date,
+        timestamp: string,
         message: string,
         name: string,
         originalAction: Action | null,

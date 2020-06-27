@@ -21,7 +21,7 @@ type ConnectRestArgs = [] | WithPrefix | WithProtocols;
 type BuiltAction<T> = {
   type: string;
   meta: {
-    timestamp: Date;
+    timestamp: string;  // JSON serialized Date.
   };
   payload?: T;
 };
@@ -49,7 +49,7 @@ function buildAction<T>(
   const base = {
     type: actionType,
     meta: {
-      timestamp: new Date(),
+      timestamp: new Date().toJSON(),
       ...meta,
     },
     // Mixin the `error` key if the payload is an Error.

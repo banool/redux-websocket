@@ -60,7 +60,7 @@ const reducer = (state = defaultState, action): State => {
           {
             data: action.payload,
             origin: window.location.origin,
-            timestamp: new Date(),
+            timestamp: new Date().toJSON(),
             type: 'OUTGOING',
           },
         ],
