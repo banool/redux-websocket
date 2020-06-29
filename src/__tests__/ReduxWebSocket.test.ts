@@ -170,13 +170,17 @@ describe('ReduxWebSocket', () => {
       it('calls handleBrokenConnection', () => {
         const dispatch = jest.fn();
 
+        const event = addEventListenerMock.mock.calls.find(
+          (call) => call[0] === 'error'
+        );
+
         /* eslint-disable dot-notation */
         reduxWebSocket['handleBrokenConnection'] = jest.fn();
-        reduxWebSocket['handleError'](dispatch, false, 'prefix');
+        reduxWebSocket['handleError'](dispatch, false, 'prefix', event);
         expect(reduxWebSocket['handleBrokenConnection']).not.toHaveBeenCalled();
 
         reduxWebSocket['hasOpened'] = true;
-        reduxWebSocket['handleError'](dispatch, false, 'prefix');
+        reduxWebSocket['handleError'](dispatch, false, 'prefix', event);
         expect(reduxWebSocket['handleBrokenConnection']).toHaveBeenCalledTimes(
           1
         );

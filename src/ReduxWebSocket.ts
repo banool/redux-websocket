@@ -76,8 +76,8 @@ export default class ReduxWebSocket {
     this.websocket.addEventListener('close', (event) =>
       this.handleClose(dispatch, stringTimestamp, prefix, event)
     );
-    this.websocket.addEventListener('error', () =>
-      this.handleError(dispatch, stringTimestamp, prefix)
+    this.websocket.addEventListener('error', (event) =>
+      this.handleError(dispatch, stringTimestamp, prefix, event)
     );
     this.websocket.addEventListener('open', (event) => {
       this.handleOpen(
@@ -143,6 +143,7 @@ export default class ReduxWebSocket {
     prefix: string,
     event: Event
   ) => {
+    console.log("WEBSOCKET DPORT CLOSE EVENT", event);
     dispatch(closed(event, stringTimestamp, prefix));
 
     // Conditionally attempt reconnection if enabled and applicable
@@ -162,10 +163,12 @@ export default class ReduxWebSocket {
   private handleError = (
     dispatch: Dispatch,
     stringTimestamp: boolean,
-    prefix: string
+    prefix: string,
+    event: Event,
   ) => {
+    console.log("WEBSOCKET DPORT ERROR EVENT", event);
     dispatch(
-      error(null, new Error('`redux-websocket` error'), stringTimestamp, prefix)
+      error(null, new Error('`asdfadsfredux-websfasdfasdfasfocket` error'), stringTimestamp, prefix)
     );
     if (this.canAttemptReconnect()) {
       this.handleBrokenConnection(dispatch);
